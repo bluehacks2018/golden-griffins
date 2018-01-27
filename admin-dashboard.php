@@ -86,12 +86,15 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#">HEAD GOVERMENT</a>
     </div>
-    <ul class="nav navbar-nav" style="float: right;">
-      <li class="active"><a href="#" data-toggle="modal" data-target="#settingsModal">CHANGE PASSWORD</a></li>
-    </ul>
+
    
    <ul class="nav navbar-nav" style="float: right;">
       <li class="active"><a href="login.php"   data-target="#settingsModal">LOG-OUT</a></li>
+    </ul>
+
+
+    <ul class="nav navbar-nav" style="float: right;">
+      <li class="active"><a href="#" data-toggle="modal" data-target="#settingsModal">CHANGE PASSWORD</a></li>
     </ul>
 
   </div>
@@ -229,7 +232,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"><span class="glyphicon glyphicon-pencil"></span> EDIT ISSUE</h4>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-pencil"></span> EDIT PASSWORD</h4>
       </div>
       <div class="modal-body"><center>
         <form class="form-inline" method="POST">
