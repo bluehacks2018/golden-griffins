@@ -89,6 +89,11 @@
     <ul class="nav navbar-nav" style="float: right;">
       <li class="active"><a href="#" data-toggle="modal" data-target="#settingsModal">CHANGE PASSWORD</a></li>
     </ul>
+   
+   <ul class="nav navbar-nav" style="float: right;">
+      <li class="active"><a href="login.php"   data-target="#settingsModal">LOG-OUT</a></li>
+    </ul>
+
   </div>
 </nav>
   
