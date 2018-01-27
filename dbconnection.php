@@ -1,7 +1,7 @@
 <?php
 	$server="localhost";
 	$username="root";
-	$password="";
+	$password="jmsalcedo";
 	$conn=new mysqli($server, $username, $password);
 	$database="nation_building";
 	$result=$conn->query("SHOW DATABASES");
