@@ -62,7 +62,8 @@
     </thead>
     <tbody>
       <?php
-        $sql="SELECT * FROM barangay_issue INNER JOIN issues ON barangay_issue.issue=issues.id WHERE barangay=".$_SESSION['currentId'];
+        $id=intval($_SESSION['currentId'])-1;
+        $sql="SELECT * FROM barangay_issue INNER JOIN issues ON barangay_issue.issue=issues.id WHERE barangay=".$id;
         $result=$conn->query($sql);
         while($row=$result->fetch_assoc())
         {

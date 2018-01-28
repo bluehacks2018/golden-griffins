@@ -35,7 +35,7 @@
     $sql="SELECT * FROM barangays WHERE id=".$_POST['barangay_id'];
     $result=$conn->query($sql);
     $row=$result->fetch_assoc()['barangay_name'];
-    
+
     $id=$_POST['barangay_id'];
     $sql="UPDATE barangays SET barangay_name=? WHERE id=".$id;
     $stmt=$conn->prepare($sql);
@@ -165,7 +165,7 @@
             echo "</td>";
             echo "<td>";
               echo "<a class='btn btn-primary' onclick=\"edit('$id', '$name')\" data-toggle='modal' data-target='#editModal'>EDIT</a> ";
-              echo "<a class='btn btn-primary' href='#editModal'>VIEW STATISTICS</a> ";
+              echo "<a class='btn btn-primary' href='statistics.php?brgy_id=$id'>VIEW STATISTICS</a> ";
               echo "<a class='btn btn-primary' href='admin-dashboard.php?delete_barangay=$id'>DELETE</a> ";
             echo "</td>";
           echo "</tr>";
