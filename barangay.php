@@ -14,6 +14,13 @@
       $sql="UPDATE barangay_issue SET head_count=$head_count, issue_count=$issue_count WHERE issue=$issue AND barangay=$barangay";
       $conn->query($sql);
   }
+  if(isset($_POST['new_password']))
+  {
+    $password=$_POST['new_password'];
+    $sql="UPDATE users SET password='$password' WHERE id=".$_SESSION['currentId'];
+    $conn->query($sql);
+    echo $sql;
+  }
 ?>
 <!DOCTYPE html>
 <head>
@@ -162,7 +169,18 @@
     $("#barangay_issue_id").val(id);
     $("#barangay").val(barangay);
     $("#issue").val(issue);
-  }
+  }function checkPword(frm)
+    {
+      if(frm.new_password.value==frm.confirm_password.value)
+      {
+          return true;
+      }
+      else
+      {
+        alert("PASSWORD MISMATCH");
+        return false;
+      }
+    }
 </script>
 </body>
 </html>

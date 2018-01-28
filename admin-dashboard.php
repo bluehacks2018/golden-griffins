@@ -32,12 +32,18 @@
   }
   if(isset($_POST['barangay_update']))
   {
+    $sql="SELECT * FROM barangays WHERE id=".$_POST['barangay_id'];
+    $result=$conn->query($sql);
+    $row=$result->fetch_assoc()['barangay_name'];
+    
     $id=$_POST['barangay_id'];
     $sql="UPDATE barangays SET barangay_name=? WHERE id=".$id;
     $stmt=$conn->prepare($sql);
     $stmt->bind_param("s", $brgy);
     $brgy=strtoupper($_POST['barangay_update']);
     $stmt->execute();
+    $sql="UPDATE users SET user='$brgy' WHERE user='$row'";
+    $conn->query($sql);
   }
   if(isset($_POST['issue_update']))
   {

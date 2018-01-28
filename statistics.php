@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>View-Stats</title>
+  <title>QUEZON CITY BARANGAY STATISTICS</title>
 
 <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
@@ -37,6 +37,7 @@
 <div class="container-fluid">        
  <div class="row"> <div class="col-md-3">
       <div class="list-group">
+        
         <?php
           $sql="SELECT * FROM barangays";
           $result=$conn->query($sql);

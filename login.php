@@ -27,7 +27,7 @@
                 if($row['type']==="barangay")
                 {
                     $_SESSION['currentBarangay']=$row['user'];
-                    $_SESSION['currentId']=$row['id']-1;
+                    $_SESSION['currentId']=$row['id'];
                     header("location: barangay.php");
                 }
             }
