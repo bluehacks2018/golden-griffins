@@ -35,11 +35,12 @@
 	}
 	if(!$users)
 	{
-		$password=md5("admin");
+		$password='admin';
 		$query="CREATE table users(
 		id INT(3) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 		username VARCHAR(30) NOT NULL,
 		password VARCHAR(30) NOT NULL,
+		user VARCHAR(30) NOT NULL,
 		type VARCHAR(30) NOT NULL)";
 		$conn->query($query);
 		$sql="INSERT INTO users(username, password, type) VALUES('admin', '$password', 'admin')";

@@ -13,7 +13,14 @@
             {
                 if($row['type']==="admin")
                 {
+                    $_SESSION['currentUser']="ADMINISTRATOR";
                     header("location: admin-dashboard.php");
+                }
+                if($row['type']==="barangay")
+                {
+                    $_SESSION['currentBarangay']=$row['user'];
+                    $_SESSION['currentId']=$row['id'];
+                    header("location: barangay.php");
                 }
             }
         }

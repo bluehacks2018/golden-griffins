@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <head>
 <title>Barangay Statistics</title>
@@ -13,7 +16,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">BARANGAY BAGONG PAG-ASA</a>
+      <a class="navbar-brand" href="#">BARANGAY | <?php echo $_SESSION['currentBarangay']; ?></a>
     </div>
       <ul class="nav navbar-nav" style="float: right;">
       <li class="active"><a href="login.php"  data-target="#settingsModal">LOG-OUT</a></li>

@@ -1,6 +1,10 @@
 <?php
   require "dbconnection.php";
   session_start();
+  if(!isset($_SESSION['currentUser']))
+  {
+    header("location:login.php");
+  }
   if(isset($_POST['add_brgy']))
   {
     $sql="INSERT INTO barangays(barangay_name) VALUES(?)";
@@ -9,11 +13,12 @@
     $brgy=strtoupper($_POST['add_brgy']);
     $stmt->execute();
     
-    $sql="INSERT INTO users(username, password, type) VALUES(?,?, 'barangay')";
+    $sql="INSERT INTO users(username, password, user, type) VALUES(?,?,?, 'barangay')";
     $stmt=$conn->prepare($sql);
-    $stmt->bind_param("ss", $uname, $uname);
+    $stmt->bind_param("sss", $uname, $uname, $brgy);
     $uname = preg_replace('/\s+/', '', $_POST['add_brgy']);
     $uname=strtolower($uname);
+    $brgy=strtoupper($_POST['add_brgy']);
     $stmt->execute();
   }
   if(isset($_POST['barangay_update']))
@@ -89,7 +94,7 @@
 
    
    <ul class="nav navbar-nav" style="float: right;">
-      <li class="active"><a href="login.php"   data-target="#settingsModal">LOG-OUT</a></li>
+      <li class="active"><a href="logout.php"   data-target="#settingsModal">LOG-OUT</a></li>
     </ul>
 
 
