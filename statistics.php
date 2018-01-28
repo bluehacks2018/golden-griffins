@@ -31,6 +31,9 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#">QUEZON CITY BARANGAY STATISTICS | <?php echo $brgy_name;?></a>
     </div>
+    <ul class="nav navbar-nav" style="float: right;">
+      <li class="active"><a href="index.php">HOME</a></li>
+    </ul>
   </div>
 </nav>
   

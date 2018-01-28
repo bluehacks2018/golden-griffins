@@ -1,5 +1,16 @@
 <?php
   require "dbconnection.php";
+  session_start();
+  if(isset($_SESSION['currentUser']))
+  {
+
+    header("location: admin-dashboard.php");
+  }
+  if(isset($_SESSION['currentId']))
+  {
+
+    header("location: barangay.php");
+  }
   $sql="SELECT * FROM barangays LIMIT 1";
   $first_id=$conn->query($sql)->fetch_assoc()['id'];
 ?>
