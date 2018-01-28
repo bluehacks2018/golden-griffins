@@ -66,8 +66,8 @@
         <td>PASS</td>
         <td><button type="button" class="btn btn-warning">UPDATE</button></td>
       </tr>
-       <tr>
-        <td>  <button type="button" class="btn btn-success">ADD</button></td>
+      <tr>
+        <td><button type="button" class="btn btn-success">ADD</button></td>
         <td></td>
         <td></td>
       </tr>

@@ -20,6 +20,14 @@
     $uname=strtolower($uname);
     $brgy=strtoupper($_POST['add_brgy']);
     $stmt->execute();
+    $sql="SELECT * FROM issues";
+    $result=$conn->query($sql);
+    while($row=$result->fetch_assoc())
+    {
+      $issue=$row['id'];
+      $sql="INSERT INTO barangay_issue(issue, barangay, head_count, issue_count) VALUES($issue, $stmt->insert_id, 0, 0)";
+      $conn->query($sql);
+    }
   }
   if(isset($_POST['barangay_update']))
   {

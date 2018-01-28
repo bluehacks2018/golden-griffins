@@ -67,7 +67,8 @@
 		id INT(3) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 		issue INT(3) NOT NULL,
 		barangay INT(3) NOT NULL,
-		status VARCHAR(30) NOT NULL)";
+		head_count INT(255) NOT NULL,
+		issue_count INT(255) NOT NULL)";
 		$conn->query($query);
 	}
 ?>
