@@ -45,6 +45,14 @@
     $issue=strtoupper($_POST['add_issue']);
     $stmt->execute();
   }
+  if(isset($_POST['new_password']))
+  {
+    $sql="UPDATE users SET password=? WHERE type='admin'";
+    $stmt=$conn->prepare($sql);
+    $stmt->bind_param("s", $password);
+    $password=md5($_POST['new_password']);
+    $stmt->execute();
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,10 +70,9 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#">HEAD GOVERMENT</a>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">BARANGGAY ISSUE</a></li>
-      <li class="active"><a href="#">SETTINGS</a></li>
-       </ul>
+    <ul class="nav navbar-nav" style="float: right;">
+      <li class="active"><a href="#" data-toggle="modal" data-target="#settingsModal">CHANGE PASSWORD</a></li>
+    </ul>
   </div>
 </nav>
   
@@ -196,8 +203,6 @@
     </div>
   </div>
 </div>
-
-
 <div id="editIssueModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
@@ -227,7 +232,51 @@
     </div>
   </div>
 </div>
+
+<div id="settingsModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-pencil"></span> EDIT ISSUE</h4>
+      </div>
+      <div class="modal-body"><center>
+        <form class="form-inline" method="POST" onsubmit="return checkPword(this)">
+          <table>
+            <tr>
+              <td>NEW PASSWORD: </td>
+              <td>
+                <input type="password" class="form-control" name="new_password">
+              </td>
+            <tr>
+              <td>CONFIRM PASSWORD: </td>
+              <td>
+                <input type="password" class="form-control" name="confirm_password">
+              </td>
+            </tr>
+          </table><hr>
+           <div style="margin-left: 60%;">
+              <button class="btn btn-primary">SAVE CHANGES</button>
+              <button class="btn btn-default" data-dismiss="modal">CLOSE</button>
+          </div>
+        </form></center>
+      </div>
+    </div>
+  </div>
+</div>
   <script>
+    function checkPword(frm)
+    {
+      if(frm.new_password.value==frm.confirm_password.value)
+      {
+          return true;
+      }
+      else
+      {
+        alert("PASSWORD MISMATCH");
+        return false;
+      }
+    }
     function edit(id, name)
     {
       $("#barangay_name").val(name);
@@ -235,7 +284,6 @@
     }
     function editIssue(id, name)
     {
-
       $("#issue_name").val(name);
       $("#issue_id").val(id);
     }
