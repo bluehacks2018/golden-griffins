@@ -50,7 +50,7 @@
 	{
 		$query="CREATE table barangays(
 		id INT(3) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-		username VARCHAR(30) NOT NULL)";
+		barangay_name VARCHAR(30) NOT NULL)";
 		$conn->query($query);
 	}
 	if(!$issues)
