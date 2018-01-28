@@ -25,9 +25,10 @@
     while($row=$result->fetch_assoc())
     {
       $issue=$row['id'];
-      $sql="INSERT INTO barangay_issue(issue, barangay, head_count, issue_count) VALUES($issue, $stmt->insert_id, 0, 0)";
+      $sql="INSERT INTO barangay_issue(issue, barangay, head_count, issue_count) VALUES($issue, $stmt->insert_id-1, 0, 0)";
       $conn->query($sql);
     }
+
   }
   if(isset($_POST['barangay_update']))
   {
@@ -64,6 +65,8 @@
   {
     $sql="DELETE FROM issues WHERE id=".$_GET['delete_issue'];
     $conn->query($sql);
+    $sql="DELETE FROM barangay_issue WHERE issue=".$_GET['delete_issue'];
+    $conn->query($sql);
   }
   if(isset($_POST['add_issue']))
   {
@@ -72,6 +75,13 @@
     $stmt->bind_param("s", $issue);
     $issue=strtoupper($_POST['add_issue']);
     $stmt->execute();
+    $result=$conn->query("SELECT * FROM barangays");
+    while($row=$result->fetch_assoc())
+    {
+      $b_id=$row['id'];
+      $sql="INSERT INTO barangay_issue(issue, barangay, head_count, issue_count) VALUES($stmt->insert_id, $b_id, 0, 0)";
+      $conn->query($sql);
+    }
   }
   if(isset($_POST['new_password']))
   {

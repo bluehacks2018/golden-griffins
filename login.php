@@ -1,6 +1,14 @@
 <?php
     require "dbconnection.php";
     session_start();
+    if(isset($_SESSION['currentId']))
+    {
+        header("location:barangay.php");
+    }
+    if(isset($_SESSION['currentUser']))
+    {
+        header("location:admin-dashboard.php");
+    }
     if(isset($_POST['username']))
     {
         $username=mysqli_escape_string($conn,$_POST['username']);
@@ -19,7 +27,7 @@
                 if($row['type']==="barangay")
                 {
                     $_SESSION['currentBarangay']=$row['user'];
-                    $_SESSION['currentId']=$row['id'];
+                    $_SESSION['currentId']=$row['id']-1;
                     header("location: barangay.php");
                 }
             }
