@@ -50,7 +50,8 @@
     $sql="UPDATE users SET password=? WHERE type='admin'";
     $stmt=$conn->prepare($sql);
     $stmt->bind_param("s", $password);
-    $password=md5($_POST['new_password']);
+    $password=$_POST['new_password'];
+    echo $password;
     $stmt->execute();
   }
 ?>
@@ -92,7 +93,7 @@
    <table class="table table-hover" border="1">
     <thead>
       <tr>
-        <th>BARANGGAY</th>
+        <th>BARANGAY</th>
         <th>ACTIONS</th>
        
       </tr>
