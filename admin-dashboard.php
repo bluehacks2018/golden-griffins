@@ -8,6 +8,13 @@
     $stmt->bind_param("s", $brgy);
     $brgy=strtoupper($_POST['add_brgy']);
     $stmt->execute();
+    
+    $sql="INSERT INTO users(username, password, type) VALUES(?,?, 'barangay')";
+    $stmt=$conn->prepare($sql);
+    $stmt->bind_param("ss", $uname, $uname);
+    $uname = preg_replace('/\s+/', '', $_POST['add_brgy']);
+    $uname=strtolower($uname);
+    $stmt->execute();
   }
   if(isset($_POST['barangay_update']))
   {
@@ -29,6 +36,14 @@
   }
   if(isset($_GET['delete_barangay']))
   {
+    $sql="SELECT * FROM barangays WHERE id=".$_GET['delete_barangay'];
+    $result=$conn->query($sql);
+    if($row=$result->fetch_assoc())
+    {
+        $username=strtolower(preg_replace('/\s+/', '', $row['barangay_name']));
+        $sql="DELETE FROM users WHERE username='$username'";
+        $conn->query($sql);
+    }
     $sql="DELETE FROM barangays WHERE id=".$_GET['delete_barangay'];
     $conn->query($sql);
   }
