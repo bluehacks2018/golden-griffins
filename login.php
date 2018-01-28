@@ -192,23 +192,14 @@ body, html {
 
 <div class="container">
         <div class="card card-container">
-            <img id="profile-img" class="profile-img-card" src="logo.png">
-            <p id="profile-name" class="profile-name-card"></p>
+            <center><h4>BARANGAY MONITORING</h4></center>
             <form class="form-signin" method="POST">
                 <span id="reauth-email" class="reauth-email"></span>
                 <input type="text" name="username" class="form-control" placeholder="USERNAME" required autofocus>
                 <input type="password" class="form-control" placeholder="PASSWORD" name="password" required>
-                <div id="remember" class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">SIGN IN</button>
                 <span style="color:red"><?php echo @$error; ?></span>
             </form><!-- /form -->
-            <a href="#" class="forgot-password">
-                Forgot the password?
-            </a>
         </div><!-- /card-container -->
     </div><!-- /container -->
 

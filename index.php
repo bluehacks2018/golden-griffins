@@ -37,12 +37,9 @@
 <div class="container">
   <div class="page-header">
     
-    <h1 style="color: WHITE;" >QUEZON CITY MONITORING SYSTEM</h1>      
+    <h1 style="color: WHITE;" >BARANGAY MONITORING SYSTEM | QUEZON CITY</h1>      
   </div>
-  <p style="color: WHITE;">This is some text.FJDSGHJDSHKFJHDSKFHJDSHDSHFSHFHJDSHJDSHFKJSHSHJFHDSKF</p>  
-  <p style="color: WHITE;">This is some text.DSFDSFDSFDSFDSFDSFDSFDSFDSFDSFDSFDSFDSFDSFDSFDSF</p>      
-    
-  <p style="color:WHITE;">This is another text.SDFDSFSDFSDFDSFSDFDSFDSFSDFDSFDSFSD/p>      
+  <p style="color: WHITE;"></p>
 </div>
 
 <div>
